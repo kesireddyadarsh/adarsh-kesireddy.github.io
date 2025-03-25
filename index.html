@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Kesireddy - Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background: #333; color: white; padding: 15px; text-align: center; margin-bottom: 30px; }
+        .container { margin: auto; overflow: hidden; max-width: 600px; min-height: 30vh; }
+        .section { padding: 15px; margin: 10px 0; background: white; border-radius: 8px; }
+        h2 { color: #333; }
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-wrap: nowrap; }
+        .tab { padding: 5px 10px; height: 30px; line-height: 30px; cursor: pointer; background: #ddd; border-radius: 5px; margin: 0; flex-grow: 1; text-align: center; white-space: nowrap; }
+        .tab.active { background: #333; color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .projects { display: flex; flex-direction: column; gap: 15px; }
+        .card { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+        .project-details { display: none; margin-top: 10px; padding: 10px; border-top: 1px solid #ddd; }
+        .card.active .project-details { display: block; }
+        footer { text-align: center; padding: 10px; background: #333; color: white; }
+    </style>
+    <script>
+        function openTab(tabName) {
+            let tabs = document.getElementsByClassName("tab-content");
+            for (let tab of tabs) {
+                tab.classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            let tabButtons = document.getElementsByClassName("tab");
+            for (let btn of tabButtons) {
+                btn.classList.remove("active");
+            }
+            document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add("active");
+        }
+
+        function toggleProjectDetails(element) {
+            element.classList.toggle("active");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Engineering Intelligence into Reality</h1>
+        <p>Bridging the gap between AI, Robotics, and Mechanical Engineering to build innovative solutions.</p>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab('about')">About Me</div>
+            <div class="tab" onclick="openTab('projects')">Projects</div>
+            <div class="tab" onclick="openTab('contact')">Contact Me</div>
+        </div>
+        <div id="about" class="tab-content active section">
+            <h2>About Me</h2>
+            <p>My journey into engineering and coding began with an innate curiosity to understand how things work. As I delved deeper into computational methods, I began applying artificial intelligence to real-world problems. My research led to two published papers on using neural networks for detecting the strength of steel through metallurgical image analysis. This project demonstrated how machine learning could revolutionize material science by predicting mechanical properties without destructive testing.</p>
+            <p>As an intern, I designed and optimized a welding solution for heavy pressure vessels using SolidWorks, applying contact mechanics and validating its effectiveness with Autodesk Algor. I collaborated with the manufacturing team to resolve design challenges through data-driven optimizations. Additionally, I converted 2D drawings into 3D models and digitalized the entire drawing set for enhanced accessibility and modifications.</p>
+            <p>After gaining experience in research and academia, I transitioned into industry, where I worked on enterprise software development and system optimization. I optimized SAP SD and MM modules by developing front-end solutions using a SaaS platform and programmed GuiXT using JavaScript to enhance data flow and system efficiency. I also managed software tool implementations from requirement gathering to deployment and support, ensuring smooth integration and usability.</p>
+            <p>Beyond enterprise software, I expanded into full-stack web development and industrial automation. I built a visitor check-in system with HTML, CSS, JavaScript, Java, and MySQL, incorporating automated notifications and database updates. I also developed a data pipeline for SPC and CPK, streamlining data collection, cleaning, and transformation using Smart Tree, C#, and Python. Additionally, I optimized GD&T analysis and customized measurement machine software, ensuring precision and efficiency using Python.</p>
+        </div>
+
+        <div id="projects" class="tab-content section">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="card" onclick="toggleProjectDetails(this)">
+                    <h3>Dynamic Weather Analysis System</h3>
+                    <p>Developed a system integrating real-time weather data with AI.</p>
+                    <div class="project-details">
+                        <p>Developed a system integrating user input with real-time weather data, utilizing LangChain, GPT, and a custom Retrieval-Augmented Generation (RAG) model.</p>
+                        <a href="https://github.com/yourgithub/dynamic-weather" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="card" onclick="toggleProjectDetails(this)">
+                    <h3>Path Planning Optimization</h3>
+                    <p>Applied advanced algorithms for efficient autonomous navigation.</p>
+                    <div class="project-details">
+                        <p>Applied A*, Dijkstra’s, MILP, evolutionary algorithms, and MDPs to enhance routing efficiency and autonomous decision-making.</p>
+                        <a href="https://github.com/yourgithub/path-planning" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content section">
+            <h2>Contact Me</h2>
+            <p>Email: your.email@example.com</p>
+            <p>GitHub: <a href="https://github.com/kesireddyadarsh”>yourgithub</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Adarsh Kesireddy. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
